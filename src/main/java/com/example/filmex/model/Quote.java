@@ -10,7 +10,7 @@ import javax.persistence.ManyToOne;
 @Getter
 @Setter
 @Entity
-public class Quote extends BaseEntity{
+public class Quote extends BaseEntity {
 
     private String content;
 

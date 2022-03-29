@@ -8,7 +8,7 @@ import javax.persistence.Entity;
 @Getter
 @Setter
 @Entity
-public class ViewLink extends BaseEntity{
+public class ViewLink extends BaseEntity {
 
     private String siteName;
     private String link;
