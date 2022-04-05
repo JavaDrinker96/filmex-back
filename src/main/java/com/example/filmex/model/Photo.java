@@ -7,6 +7,7 @@ import lombok.Setter;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.Transient;
 
 @Getter
 @Setter
@@ -14,6 +15,9 @@ import javax.persistence.Enumerated;
 public class Photo extends BaseEntity {
 
     private String name;
+
+    @Transient
+    private byte[] content;
 
     @Enumerated(EnumType.STRING)
     private PhotoType type;
