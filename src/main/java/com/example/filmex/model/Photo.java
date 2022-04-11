@@ -2,7 +2,9 @@ package com.example.filmex.model;
 
 import com.example.filmex.repository.PhotoType;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -12,6 +14,8 @@ import javax.persistence.Transient;
 @Getter
 @Setter
 @Entity
+@SuperBuilder
+@NoArgsConstructor
 public class Photo extends BaseEntity {
 
     private String name;

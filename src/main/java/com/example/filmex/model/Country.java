@@ -12,4 +12,3 @@ public class Country extends BaseEntity {
 
     private String name;
 }
-

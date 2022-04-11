@@ -1,4 +1,6 @@
 package com.example.filmex.service;
 
-public interface PostService {
+import com.example.filmex.model.Post;
+
+public interface PostService extends BaseService<Post> {
 }

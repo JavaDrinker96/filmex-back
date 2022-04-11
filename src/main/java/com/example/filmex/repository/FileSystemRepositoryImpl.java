@@ -1,7 +1,9 @@
 package com.example.filmex.repository;
 
+import com.example.filmex.exception.NotFoundException;
 import com.example.filmex.model.Photo;
 import lombok.SneakyThrows;
+import org.springframework.core.io.FileSystemResource;
 import org.springframework.stereotype.Repository;
 
 import java.nio.file.Files;
@@ -26,6 +28,15 @@ public class FileSystemRepositoryImpl implements FileSystemRepository {
         Files.createDirectories(newFile.getParent());
         Files.write(newFile, photo.getContent());
         return newFile.toAbsolutePath().toString();
+    }
+
+    @Override
+    public FileSystemResource findInFileSystem(final String location) {
+        try {
+            return new FileSystemResource(Paths.get(location));
+        } catch (Exception e) {
+            throw new NotFoundException(String.format("File with path %s not found in the file system", location));
+        }
     }
 
     private Path buildAbsolutePathUserPhoto(final Long userId, final String imageName) {
