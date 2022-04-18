@@ -9,12 +9,11 @@ public interface BaseService<E extends BaseEntity> {
 
     E create(E entity);
 
-    E update(E newEntity);
-
     E read(Long id);
+
+    E update(E newEntity);
 
     void delete(Long id);
 
     List<E> readAll(Pageable pageable);
-
 }

@@ -39,6 +39,22 @@ public class FileSystemRepositoryImpl implements FileSystemRepository {
         }
     }
 
+    @SneakyThrows
+    @Override
+    public void delete(final String location){
+        Path deletedImage = Paths.get(location);
+        Files.delete(deletedImage);
+    }
+
+    @SneakyThrows
+    @Override
+    public void deletePostFolder(final Long postId, final Long userId){
+        final StringBuilder pathBuilder = new StringBuilder(IMAGE_RESOURCES);
+        pathBuilder.append(String.format("images/%d/films/%d", userId, postId));
+        Path deletedFolder = Paths.get(pathBuilder.toString());
+        Files.delete(deletedFolder);
+    }
+
     private Path buildAbsolutePathUserPhoto(final Long userId, final String imageName) {
         final StringBuilder pathBuilder = new StringBuilder(IMAGE_RESOURCES);
         pathBuilder.append(String.format("images/%d/personal/", userId));
