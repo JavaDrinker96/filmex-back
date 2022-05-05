@@ -8,5 +8,6 @@ import lombok.Setter;
 public class PostRequest {
 
     private Pagination pagination;
+    private PostFilter filter;
     private String contains;
 }

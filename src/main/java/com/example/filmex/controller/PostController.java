@@ -56,9 +56,9 @@ public class PostController {
         manager.delete(postId, userId);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
-
-    @GetMapping(value = "read-all/{userId}")
-    public ResponseEntity<List<PostDto>> readAll(@RequestBody final PostRequest request){
-        final List<Post> postList = manager.
-    }
+//
+//    @GetMapping(value = "read-all/{userId}")
+//    public ResponseEntity<List<PostDto>> readAll(@RequestBody final PostRequest request){
+//        final List<Post> postList = manager.
+//    }
 }

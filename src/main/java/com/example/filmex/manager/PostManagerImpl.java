@@ -2,6 +2,7 @@ package com.example.filmex.manager;
 
 import com.example.filmex.model.Photo;
 import com.example.filmex.model.Post;
+import com.example.filmex.request.PostFilter;
 import com.example.filmex.request.PostRequest;
 import com.example.filmex.service.PhotoService;
 import com.example.filmex.service.PostService;
@@ -58,19 +59,22 @@ public class PostManagerImpl implements PostManager {
         photoService.deletePostFolder(id, userId);
     }
 
-    public List<Post> readAll(final PostRequest request) {
-        final String contains = request.getContains();
-        final PageRequest pageable = PageRequest.of(
-                request.getPagination().getPage(),
-                request.getPagination().getSize(),
-                Sort.by(
-                        request.getPagination().getSorting().getDirection(),
-                        request.getPagination().getSorting().getProperty()
-                )
-        );
-
-        if (Strings. ())
-    }
+//    public List<Post> readAll(final PostRequest request) {
+//        final PostFilter filter = request.getFilter();
+//        final String contains = request.getContains();
+//        final PageRequest pageable = PageRequest.of(
+//                request.getPagination().getPage(),
+//                request.getPagination().getSize(),
+//                Sort.by(
+//                        request.getPagination().getSorting().getDirection(),
+//                        request.getPagination().getSorting().getProperty()
+//                )
+//        );
+//
+//        final List<Post> postList = switch (filter){
+//            case TITLE ->
+//        }
+//    }
 
     private void mergePhotoToPost(final Post post, final Long userId) {
         final Photo savedLogo = photoService.create(post.getLogo(), userId, post.getId());
