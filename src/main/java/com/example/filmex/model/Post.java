@@ -65,7 +65,7 @@ public class Post extends BaseEntity {
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(joinColumns = @JoinColumn(name = "post_id"),
             inverseJoinColumns = @JoinColumn(name = "viewlink_id"))
-    private List<ViewLink> viewLinks;
+    private Set<ViewLink> viewLinks;
 
     @Column(nullable = false)
     private Boolean favourite;
