@@ -2,9 +2,12 @@ package com.example.filmex.manager;
 
 import com.example.filmex.model.Photo;
 import com.example.filmex.model.Post;
+import com.example.filmex.request.PostRequest;
 import com.example.filmex.service.PhotoService;
 import com.example.filmex.service.PostService;
 import lombok.SneakyThrows;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -53,6 +56,20 @@ public class PostManagerImpl implements PostManager {
     public void delete(final Long id, final Long userId) {
         postService.delete(id);
         photoService.deletePostFolder(id, userId);
+    }
+
+    public List<Post> readAll(final PostRequest request) {
+        final String contains = request.getContains();
+        final PageRequest pageable = PageRequest.of(
+                request.getPagination().getPage(),
+                request.getPagination().getSize(),
+                Sort.by(
+                        request.getPagination().getSorting().getDirection(),
+                        request.getPagination().getSorting().getProperty()
+                )
+        );
+
+        if (Strings. ())
     }
 
     private void mergePhotoToPost(final Post post, final Long userId) {
