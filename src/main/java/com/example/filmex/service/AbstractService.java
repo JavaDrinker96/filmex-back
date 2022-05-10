@@ -15,7 +15,7 @@ public abstract class AbstractService<E extends BaseEntity, R extends BaseReposi
     protected final R repository;
     protected final Class<E> entityClass;
 
-    public AbstractService(final R repository, Class<E> entityClass) {
+    public AbstractService(final R repository, final Class<E> entityClass) {
         this.repository = repository;
         this.entityClass = entityClass;
     }
@@ -70,12 +70,12 @@ public abstract class AbstractService<E extends BaseEntity, R extends BaseReposi
     }
 
     @Override
-    public List<E> readAll(final Pageable pageable) {
+    public List<E> readAll(final Pageable pageable, final Long userId) {
         if (Objects.isNull(pageable)) {
             throw new NullParameterException(
                     "Reading error. The pagination object cannot be null");
         }
-        final List<E> entityList = repository.findAll(pageable).getContent();
+        final List<E> entityList = repository.findAllByUserId(pageable, userId).getContent();
         if (entityList.isEmpty()) {
             throw new NotFoundException(
                     String.format("Could not find entities of the %s type corresponding to the query in the database",

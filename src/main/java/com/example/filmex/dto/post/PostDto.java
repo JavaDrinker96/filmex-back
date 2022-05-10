@@ -1,13 +1,10 @@
 package com.example.filmex.dto.post;
 
+import com.example.filmex.dto.BaseDto;
 import com.example.filmex.dto.actor.ActorDto;
-import com.example.filmex.dto.country.CountryDto;
 import com.example.filmex.dto.director.DirectorDto;
-import com.example.filmex.dto.link.ViewLinkCreateDto;
 import com.example.filmex.dto.link.ViewLinkDto;
 import com.example.filmex.dto.photo.PhotoCreateDto;
-import com.example.filmex.dto.photo.PhotoDto;
-import com.example.filmex.dto.quote.QuoteCreateDto;
 import com.example.filmex.dto.quote.QuoteDto;
 import com.example.filmex.model.ViewStatus;
 import lombok.Getter;
@@ -19,12 +16,12 @@ import java.util.Set;
 
 @Getter
 @Setter
-public class PostDto {
+public class PostDto extends BaseDto {
 
     private Long id;
     private String name;
     private LocalDate year;
-    private Set<CountryDto> countries;
+    private String countries;
     private String slogan;
     private Set<DirectorDto> directors;
     private Set<ActorDto> actors;

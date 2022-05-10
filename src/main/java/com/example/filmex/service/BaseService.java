@@ -15,5 +15,5 @@ public interface BaseService<E extends BaseEntity> {
 
     void delete(Long id);
 
-    List<E> readAll(Pageable pageable);
+    List<E> readAll(Pageable pageable, Long userId);
 }

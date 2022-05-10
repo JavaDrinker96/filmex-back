@@ -1,6 +1,7 @@
 package com.example.filmex.model;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.CascadeType;
@@ -24,14 +25,14 @@ import java.util.Set;
 public class Post extends BaseEntity {
 
     @Column(nullable = false)
+    private Long userId;
+
+    @Column(nullable = false)
     private String name;
 
     private LocalDate year;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(joinColumns = @JoinColumn(name = "post_id"),
-            inverseJoinColumns = @JoinColumn(name = "country_id"))
-    private Set<Country> countries;
+    private String countries;
 
     @Column(nullable = false)
     @ManyToMany(fetch = FetchType.LAZY)

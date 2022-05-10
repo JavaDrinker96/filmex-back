@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class GenreServiceImpl extends AbstractService<Genre, GenreRepository> implements GenreService {
 
-    public GenreServiceImpl(final GenreRepository repository, final Class<Genre> entityClass) {
-        super(repository, entityClass);
+    public GenreServiceImpl(final GenreRepository repository) {
+        super(repository, Genre.class);
     }
 }

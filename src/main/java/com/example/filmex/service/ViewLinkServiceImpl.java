@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class ViewLinkServiceImpl extends AbstractService<ViewLink, ViewLinkRepository> implements ViewLinkService {
 
-    public ViewLinkServiceImpl(final ViewLinkRepository repository, final Class<ViewLink> entityClass) {
-        super(repository, entityClass);
+    public ViewLinkServiceImpl(final ViewLinkRepository repository) {
+        super(repository, ViewLink.class);
     }
 }

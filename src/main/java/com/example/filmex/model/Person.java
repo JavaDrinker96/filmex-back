@@ -3,6 +3,7 @@ package com.example.filmex.model;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.Column;
 import javax.persistence.JoinColumn;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToOne;
@@ -11,6 +12,9 @@ import javax.persistence.OneToOne;
 @Setter
 @MappedSuperclass
 public abstract class Person extends BaseEntity {
+
+    @Column(nullable = false)
+    protected Long userId;
 
     protected String fullName;
 

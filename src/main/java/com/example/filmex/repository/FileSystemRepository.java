@@ -12,6 +12,5 @@ public interface FileSystemRepository {
 
     void delete(String location);
 
-    @SneakyThrows
     void deletePostFolder(Long postId, Long userId);
 }
